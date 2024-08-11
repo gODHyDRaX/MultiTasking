@@ -1,0 +1,243 @@
+.github{
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    grid-column-start: 23;
+    grid-column-end: 25;
+    grid-row-start: 2;
+    font-size: 1.5rem;
+        font-family: "Shadows Into Light", cursive;
+            font-weight: 500;
+            font-style: normal; 
+}
+.github:hover{
+    background-color: white;
+    transition: 0.5s;
+    color: black;
+    cursor: pointer;
+    border: 0.5px solid black;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.vtn_login{
+    grid-row-start: 5;
+    grid-column-start: 4;
+    grid-column-end: 23;
+    grid-row-end: 22;
+box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+    border-radius: 25px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding: 2rem;
+}
+.lgn_1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-right: 1px solid rgb(211, 211, 211);
+    padding: 1rem;
+}
+.lgn_2{
+    display: grid;
+    grid-template-columns: repeat(11,1fr);
+    grid-template-rows: repeat(10,1fr);
+    padding: 1rem;
+}
+.lgn_2 h1{
+    grid-column-start: 1;
+    grid-column-end: 12;
+    border-bottom: 0.5px solid black;
+    font-family: "Shadows Into Light", cursive;
+    font-weight: 500;
+    font-style: normal;
+    display: flex;
+    align-items: center;
+}
+.lgn_2 h2{
+    font-family: "Shadows Into Light", cursive;
+        font-weight: 500;
+        font-style: normal;
+    grid-row-start: 3;
+    grid-column-start: 4;
+    grid-column-end: 9;
+    display: flex;
+    justify-content: center;
+    font-size: 2.5rem;
+    align-items: center;
+}
+.user{
+    display: flex;
+    grid-column-start: 3;
+    grid-column-end: 10;
+    grid-row-start: 5;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+}
+.contra{
+    display: flex;
+    grid-column-start: 3;
+    grid-column-end: 10;
+    grid-row-start: 6;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid black;
+}
+.caja_btns{
+    grid-column-start: 3;
+    grid-column-end: 10;
+    grid-row-start: 8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.beta{
+    background-color: black;
+    height: 100%;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    width: 15rem;
+    border-radius: 8px;
+    font-family: "Shadows Into Light", cursive;
+        font-weight: 500;
+        font-style: normal;
+}
+.beta:hover{
+    transition: 0.5s;
+    background-color: white;
+    color: black;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.btn_login{
+    background-color: black;
+    height: 100%;
+    color: white;
+        display: flex;
+        font-size: 2rem;
+        justify-content: center;
+        align-items: center;
+        width: 15rem;
+        border-radius: 8px;
+        font-family: "Shadows Into Light", cursive;
+            font-weight: 500;
+            font-style: normal;
+
+}
+.btn_login:hover{
+    cursor: pointer;
+    background-color: white;
+    transition: 0.5s;
+    color: black;
+    border: 1px solid black;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+.txt_cr{
+    grid-column-start: 5;
+    grid-row-start: 10;
+    grid-column-end: 8;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    font-family: "Shadows Into Light", cursive;
+        font-weight: 100;
+        font-style: normal;
+        color: rgb(196, 196, 196);
+        font-size: 1.5rem;
+}
+.txt_cr:hover{
+    color: black;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.vent_login{
+   grid-column-start: 1;
+   grid-column-end: 26;
+   grid-row-start: 1;
+   grid-row-end: 26;
+   display: grid;
+   grid-template-columns: repeat(25,1fr);
+   grid-template-rows: repeat(25,1fr);
+    gap: 1rem;
+    padding: 1rem;
+}
+.vent_cc{
+    width: 40rem;
+    height: 40rem;
+    position: fixed;
+    background-color: white;
+    border:  1px solid black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.txt_error{
+    color: red;
+    display: flex;
+    grid-column-start: 3;
+    grid-column-end: 10;
+    grid-row-start: 7;
+}
+.header_login{
+    grid-column-start: 1;
+    grid-column-end: 26;
+    grid-row-start: 1;
+    grid-row-end: 5;
+    display: grid;
+    grid-template-columns: repeat(30,1fr);
+    grid-template-rows: repeat(10,1fr);
+    border-bottom: 1px solid rgb(172, 172, 172);
+    justify-content: center;
+    align-items: center;
+}
+.nm_tarea{
+    grid-row-start: 5;
+    grid-column-start: 1;
+    grid-column-end: 14;
+    grid-row-end: 26;
+    border-right: 1px solid rgb(172, 172, 172);
+}
+.user_asignado{
+    grid-column-start: 14;
+    grid-column-end: 18;
+    grid-row-start: 5;
+    grid-row-end: 26;
+}
+.div_entrega{
+    grid-column-start: 18;
+    grid-column-end: 22;
+    grid-row-start: 5;
+    grid-row-end: 26;
+    border-left: 1px solid rgb(172, 172, 172);
+}
+.div_estado{
+    grid-row-start: 5;
+    grid-row-end: 26;
+    grid-column-start: 22;
+    grid-column-end: 26;
+    border-left: 1px solid rgb(172, 172, 172);
+}
+.img_user{
+    background-color: aquamarine;
+    grid-column-start: 21;
+}
+.header_login h2{
+    background-color: aqua;
+    grid-column-start: 2;
+    grid-column-end: 4;
+}
+.add_tarea{
+    grid-column-start: 20;
+    justify-self: flex-end;
+}
+.buscar{
+    grid-column-start: 15;
+    grid-column-end: 19;
+}
