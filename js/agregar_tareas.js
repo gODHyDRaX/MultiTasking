@@ -25,8 +25,6 @@ export function mostrarTareas() {
         }
         return [];
     }
-
-    // Limpia el contenedor antes de agregar nuevas tareas
     div_tareas.innerHTML = '';
 
     tareas.forEach(tarea => {
@@ -35,14 +33,10 @@ export function mostrarTareas() {
                 <div class="nm_tarea">${tarea.NombreTarea}</div>
                 <div class="asignado">
         `;
-
-        // Agrega múltiples imágenes de perfil para cada usuario asignado
         let detalles = obtenerDetallesTarea(tarea.idtarea);
         detalles.forEach(detalle => {
             tareaHTML += `<img src="${detalle.imgPerfil}" alt="Perfil" class="img_perfil" />`;
         });
-
-        // Continúa el HTML con fecha y estado
         tareaHTML += `
                 </div>
                 <div class="fecha">${detalles[0].fechaEntrega}</div>
@@ -50,12 +44,10 @@ export function mostrarTareas() {
             </div>
         `;
 
-        // Inserta el HTML generado en el contenedor div_tareas
         div_tareas.innerHTML += tareaHTML;
     });
 }
 
-// Función para obtener la clase de estado correspondiente para el color
 function getEstadoClass(estado) {
     switch (estado) {
         case "Not started":
@@ -83,11 +75,9 @@ export function configurarBotonAddTarea() {
 }
 
 function ventana_crear_Tarea() {
-    // Crear el contenedor del modal
     let modal = document.createElement("div");
     modal.classList.add("modal");
 
-    // Crear el contenido del modal
     modal.innerHTML = `
         <div class="modal-content">
             <h2>Crear Tarea</h2>
@@ -114,15 +104,11 @@ function ventana_crear_Tarea() {
         </div>
     `;
 
-    // Agregar el modal al contenedor raíz
     document.querySelector(".root").appendChild(modal);
 
-    // Manejar el cierre del modal
     document.querySelector("#close_modal").addEventListener("click", () => {
         modal.remove();
     });
-
-    // Manejar el envío del formulario
     document.querySelector("#form_tarea").addEventListener("submit", (event) => {
         event.preventDefault();
 
@@ -137,11 +123,8 @@ function ventana_crear_Tarea() {
             fechaEntrega: fechaEntrega,
             usuario_id_asignados: usuariosSeleccionados
         });
-
-        // Mostrar las tareas actualizadas
         mostrarTareas();
 
-        // Cerrar el modal
         modal.remove();
     });
 }

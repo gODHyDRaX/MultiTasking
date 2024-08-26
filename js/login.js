@@ -40,11 +40,8 @@ btn_login.addEventListener("click", () => {
 
         let imgUser = document.querySelector(".img_user");
         imgUser.innerHTML = `<img src="${lgn_exitoso.imgPerfil}" alt="" class="img_u">`;
-
-        // Llama a mostrarTareas después de que la ventana de login esté cargada
         mostrarTareas();
 
-        // Configura el botón para agregar tareas
         configurarBotonAddTarea();
     } else {
         let txt_error = document.createElement("div");
