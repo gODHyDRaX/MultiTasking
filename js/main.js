@@ -8,7 +8,7 @@ root.innerHTML = login_inicio
 let vtn_login = document.querySelector(".vtn_login")
 let login_vtn = ` 
     <div class="lgn_1">
-       
+        <img src="https://github.com/gODHyDRaX/img_Multitasking/blob/main/google-classroom.png?raw=true" alt="">
     </div>
     <div class="lgn_2">
         <h1>Bienvenido a MultiTasking</h1>

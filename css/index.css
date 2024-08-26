@@ -36,8 +36,12 @@ box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2p
     display: flex;
     justify-content: center;
     align-items: center;
-    border-right: 1px solid rgb(211, 211, 211);
+    border-right: 3px dotted  rgb(211, 211, 211);
     padding: 1rem;
+}
+.lgn_1 img{
+    width: 20rem;
+    height: 20rem;
 }
 .lgn_2{
     display: grid;
@@ -100,8 +104,8 @@ box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2p
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2rem;
-    width: 15rem;
+    font-size: 1.5rem;
+    width: 14rem;
     border-radius: 8px;
     font-family: "Shadows Into Light", cursive;
         font-weight: 500;
@@ -121,10 +125,10 @@ box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2p
     height: 100%;
     color: white;
         display: flex;
-        font-size: 2rem;
+        font-size: 1.5rem;
         justify-content: center;
         align-items: center;
-        width: 15rem;
+        width: 14rem;
         border-radius: 8px;
         font-family: "Shadows Into Light", cursive;
             font-weight: 500;
@@ -140,9 +144,9 @@ box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2p
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 .txt_cr{
-    grid-column-start: 5;
+    grid-column-start: 4;
     grid-row-start: 10;
-    grid-column-end: 8;
+    grid-column-end: 9;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -191,53 +195,179 @@ box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2p
     grid-row-start: 1;
     grid-row-end: 5;
     display: grid;
-    grid-template-columns: repeat(30,1fr);
-    grid-template-rows: repeat(10,1fr);
-    border-bottom: 1px solid rgb(172, 172, 172);
+    gap: 1rem;
+    grid-template-columns: repeat(40,1fr);
+    grid-template-rows: repeat(2,1fr);
+    border-bottom: 5px dotted rgb(172, 172, 172);
     justify-content: center;
     align-items: center;
 }
-.nm_tarea{
-    grid-row-start: 5;
+.div_tareas{
     grid-column-start: 1;
-    grid-column-end: 14;
-    grid-row-end: 26;
-    border-right: 1px solid rgb(172, 172, 172);
-}
-.user_asignado{
-    grid-column-start: 14;
-    grid-column-end: 18;
-    grid-row-start: 5;
-    grid-row-end: 26;
-}
-.div_entrega{
-    grid-column-start: 18;
-    grid-column-end: 22;
-    grid-row-start: 5;
-    grid-row-end: 26;
-    border-left: 1px solid rgb(172, 172, 172);
-}
-.div_estado{
-    grid-row-start: 5;
-    grid-row-end: 26;
-    grid-column-start: 22;
     grid-column-end: 26;
-    border-left: 1px solid rgb(172, 172, 172);
+    grid-row-start: 5;
+    grid-row-end: 26;
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
 }
 .img_user{
-    background-color: aquamarine;
-    grid-column-start: 21;
+    
+    grid-column-start: 40;
 }
 .header_login h2{
-    background-color: aqua;
     grid-column-start: 2;
     grid-column-end: 4;
+    font-family: "Shadows Into Light", cursive;
+        font-weight: 500;
+        font-style: normal;
+        font-size: 2.5rem;
 }
 .add_tarea{
-    grid-column-start: 20;
+    grid-column-start: 39;
     justify-self: flex-end;
 }
 .buscar{
-    grid-column-start: 15;
-    grid-column-end: 19;
+    grid-column-start:30 ;
+    border: none;
+    border-bottom: 1px solid black;
+    grid-column-end:39;
+    outline: none;
+}
+.nom_tarea{
+    grid-column-start: 1;
+    grid-column-end: 5;
+    font-family: "Shadows Into Light", cursive;
+        font-weight: 300;
+        font-style: normal;
+        font-size: 1.5rem;
+        color: rgb(177, 177, 177);
+}
+.asignado_spn{
+    grid-column-start: 22;
+    grid-column-end: 28 ;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Shadows Into Light", cursive;
+        font-weight: 300;
+        font-style: normal;
+        font-size: 1.5rem;
+        color: rgb(177, 177, 177);
+}
+.fecha_spn{
+     grid-column-start: 29;
+    grid-column-end: 34;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Shadows Into Light", cursive;
+        font-weight: 300;
+        font-style: normal;
+        font-size: 1.5rem;
+        color: rgb(177, 177, 177);
+}
+.estado_spn{
+    grid-column-start: 35;
+    grid-column-end: 41;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Shadows Into Light", cursive;
+        font-weight: 300;
+        font-style: normal;
+        font-size: 1.5rem;
+        color: rgb(177, 177, 177);
+}
+.img_u{
+    width: 4rem;
+    height: 4rem;
+}
+.tarea{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    display: grid;
+    grid-template-columns: 1fr 21rem 21rem 21rem ;
+    justify-content: center;
+    height: 5rem;
+    justify-content: center;
+    font-family: "Shadows Into Light", cursive;
+        font-weight: 400;
+        font-size: 1.4rem;
+        font-style: normal;
+        padding: 1rem;
+}
+.asignado img{
+    width: 3rem;
+    height: 3rem;
+}
+.asignado{
+    display: flex;
+    align-items: center;
+}
+.nm_tarea{
+    display: flex;
+    align-items: center;
+}
+.fecha{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.estado{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.est{
+    width: 14rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.estado-rojo {
+    background-color: rgb(255, 99, 99);
+}
+
+.estado-azul {
+    background-color: rgb(255, 196, 0);
+}
+
+.estado-verde {
+    background-color: rgb(18, 214, 18);
+}.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 400px;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+#usuarios .usuario {
+    display: flex;
+    align-items: center;
+}
+
+#usuarios .img_perfil_modal {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
 }
