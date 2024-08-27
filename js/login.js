@@ -65,7 +65,7 @@ function ventana_login() {
             <span class="asignado_spn">Asignado</span>
             <span class="fecha_spn">Fecha de entrega</span>
             <span class="estado_spn">Estado</span>
-            <div class="volver_login">Volver al Login</div>
+            <button class="volver_login">Volver al Login</button>
         </header>
         <div class="div_tareas"></div>
     `;
@@ -81,9 +81,9 @@ function ventana_login() {
         });
     }
 
-    let divVolverLogin = document.querySelector(".volver_login");
-    if (divVolverLogin) {
-        divVolverLogin.addEventListener("click", volverAlLogin);
+    let btnVolverLogin = document.querySelector(".volver_login");
+    if (btnVolverLogin) {
+        btnVolverLogin.addEventListener("click", volverAlLogin);
     }
 }
 
@@ -146,7 +146,7 @@ function volverAlLogin() {
 
     let vtnLogin = document.querySelector(".vtn_login");
     if (vtnLogin) {
-        vtnLogin.classList.remove('hidden');
+        vtnLogin.style.display = 'block';
     }
 
     localStorage.removeItem("sesionActiva");
