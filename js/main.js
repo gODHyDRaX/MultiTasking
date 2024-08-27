@@ -1,7 +1,6 @@
-import { usuarios } from "./Data_users.js"
 let root = document.querySelector(".root")
 let login_inicio = `
-    <div class="github">Github</div>
+    <a href="https://github.com/gODHyDRaX/MultiTasking" class="github">Github</a>
     <div class="vtn_login"></div>
 `
 root.innerHTML = login_inicio

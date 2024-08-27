@@ -337,37 +337,307 @@ box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2p
 
 .estado-verde {
     background-color: rgb(18, 214, 18);
-}.modal {
+}
+.modal {
+    position: fixed;
+    font-family: "Shadows Into Light", cursive;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 1.2rem;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+
+.modal-content h2 {
+    margin-top: 0;
+
+    margin-bottom: 20px;
+
+    font-size: 1.5em;
+
+    text-align: center;
+
+}
+
+.campo {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.campo span {
+    margin-bottom: 5px;
+
+}
+
+.campo input[type="text"],
+.campo input[type="date"] {
+    padding: 8px;
+    
+    border: 1px solid #ddd;
+
+    border-radius: 4px;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+}
+
+
+.campo select {
+    padding: 8px;
+
+    border: 1px solid #ddd;
+
+    border-radius: 4px;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+}
+
+#usuarios {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+}
+
+.usuario {
+    display: flex;
+    align-items: center;
+}
+
+
+.img_perfil_modal {
+    width: 30px;
+
+    height: 30px;
+
+    border-radius: 50%;
+
+    margin-right: 10px;
+   
+}
+
+
+.boton {
+    background-color: #007bff;
+
+    color: white;
+    
+    padding: 10px;
+
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+.boton:hover {
+    background-color: #0056b3;
+}
+#close_modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #dc3545;
+}
+#close_modal:hover {
+    background-color: #c82333;
+
+}
+#estado_tarea{
+    display: flex;
+    justify-content: space-around;
+    height: 5rem;
+    align-items: center;
+
+    
+}
+.estado_opcion{
+    cursor: pointer;
+    width: 10rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+.estado-rojo:hover{
+    transition: 0.5s;
+    background-color: rgb(221, 57, 57);
+}
+.estado-azul:hover {
+    background-color: rgb(199, 146, 0);
+    transition: 0.5s;
+}
+
+.estado-verde:hover {
+    background-color: rgb(0, 177, 0);
+    transition: 0.5s;
+}
+
+.menu-categorias {
+    position: fixed;
+        top: 0;
+        right: 0;
+        width: 250px;
+        
+        height: 100%;
+        background-color: black;
+        color: white;
+
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+}
+
+.menu-categorias .menu-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.menu-categorias .menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+}
+
+.menu-categorias .menu-header h2 {
+    margin: 0;
+    font-size: 24px;
+   
+}
+
+.menu-categorias .close-menu {
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+}
+
+.menu-categorias .categorias-list {
+    padding: 15px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.menu-categorias .categoria {
+    padding: 10px 0;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+}
+
+.menu-categorias .categoria:hover {
+    background-color: #f0f0f0;
+}
+
+
+.menu-categorias.open {
+    transform: translateX(0);
+}
+
+
+body.menu-open {
+    overflow: hidden;
+}
+.menu{
+    cursor: pointer;
+}
+
+.modal-menu {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
+    /* Fondo oscuro */
+    z-index: 999;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.modal-content {
-    background: white;
+.modal-menu.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Estilo para el contenido del modal */
+.modal-menu-content {
+    width: 300px;
+    /* Ancho del contenido del modal */
+    background-color: white;
     padding: 20px;
-    border-radius: 5px;
-    width: 400px;
+    border-radius: 8px;
+    /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    /* Necesario para el posicionamiento del botón de cerrar */
 }
 
-.modal-content h2 {
-    margin-top: 0;
+/* Estilo para el botón de cerrar */
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    /* Color del icono de cerrar */
 }
 
-#usuarios .usuario {
-    display: flex;
-    align-items: center;
+/* Estilo para el encabezado del modal */
+.modal-menu-content h2 {
+    margin: 0 0 15px;
+    font-size: 18px;
+    color: #333;
 }
 
-#usuarios .img_perfil_modal {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    margin-right: 10px;
+/* Estilo para la lista de categorías */
+.categorias-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.categorias-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    color: #333;
+}
+
+.categorias-list li:hover {
+    background-color: #f0f0f0;
 }
