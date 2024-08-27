@@ -13,6 +13,9 @@
             font-weight: 500;
             font-style: normal; 
 }
+.hidden {
+    display: none;
+}
 .github:hover{
     background-color: white;
     transition: 0.5s;
@@ -501,6 +504,9 @@ box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2p
 }
 
 .menu-categorias {
+    font-family: "Shadows Into Light", cursive;
+        font-weight: 400;
+        font-style: normal;
     position: fixed;
         top: 0;
         right: 0;
@@ -520,6 +526,9 @@ box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2p
     display: flex;
     flex-direction: column;
     height: 100%;
+    font-family: "Shadows Into Light", cursive;
+        font-weight: 400;
+        font-style: normal;
 }
 
 .menu-categorias .menu-header {
@@ -529,11 +538,17 @@ box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2p
     padding: 15px;
     background-color: #f5f5f5;
     border-bottom: 1px solid #ddd;
+    font-family: "Shadows Into Light", cursive;
+        font-weight: 400;
+        font-style: normal;
 }
 
 .menu-categorias .menu-header h2 {
     margin: 0;
     font-size: 24px;
+    font-family: "Shadows Into Light", cursive;
+        font-weight: 400;
+        font-style: normal;
    
 }
 
@@ -547,12 +562,18 @@ box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2p
     padding: 15px;
     flex: 1;
     overflow-y: auto;
+    font-family: "Shadows Into Light", cursive;
+        font-weight: 400;
+        font-style: normal;
 }
 
 .menu-categorias .categoria {
     padding: 10px 0;
     cursor: pointer;
     border-bottom: 1px solid #ddd;
+    font-family: "Shadows Into Light", cursive;
+        font-weight: 400;
+        font-style: normal;
 }
 
 .menu-categorias .categoria:hover {
@@ -579,7 +600,6 @@ body.menu-open {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    /* Fondo oscuro */
     z-index: 999;
     display: flex;
     justify-content: center;
@@ -591,20 +611,22 @@ body.menu-open {
     visibility: visible;
 }
 
-/* Estilo para el contenido del modal */
+
 .modal-menu-content {
     width: 300px;
-    /* Ancho del contenido del modal */
+
     background-color: white;
     padding: 20px;
     border-radius: 8px;
-    /* Bordes redondeados */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     position: fixed;
-    /* Necesario para el posicionamiento del botón de cerrar */
+    font-family: "Shadows Into Light", cursive;
+        font-weight: 400;
+        font-style: normal;
+   
 }
 
-/* Estilo para el botón de cerrar */
+
 .close-modal {
     position: absolute;
     top: 10px;
@@ -614,17 +636,20 @@ body.menu-open {
     font-size: 20px;
     cursor: pointer;
     color: #333;
-    /* Color del icono de cerrar */
+    font-family: "Shadows Into Light", cursive;
+        font-weight: 400;
+        font-style: normal;
+
 }
 
-/* Estilo para el encabezado del modal */
+
 .modal-menu-content h2 {
     margin: 0 0 15px;
     font-size: 18px;
     color: #333;
 }
 
-/* Estilo para la lista de categorías */
+
 .categorias-list {
     list-style: none;
     padding: 0;
@@ -640,4 +665,18 @@ body.menu-open {
 
 .categorias-list li:hover {
     background-color: #f0f0f0;
+}
+.volver_login{
+    grid-column-start: 6;
+    grid-column-end: 9;
+    grid-row-start: 1;
+    font-family: "Shadows Into Light", cursive;
+        font-weight: 400;
+        font-style: normal;
+        cursor: pointer;
+        font-size: 1.2rem;
+}
+.volver_login:hover{
+    transition: 0.2s;
+    color: red;
 }

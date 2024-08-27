@@ -1,13 +1,53 @@
 import { usuarios } from "./Data_users.js";
 import { mostrarTareas, configurarBotonAddTarea } from "./agregar_tareas.js";
-import { configurarBotonMenu } from "./categorias.js"; // Asegúrate de importar la función para configurar el botón de menú
+import { configurarBotonMenu } from "./categorias.js";
 
 let root = document.querySelector(".root");
 let btn_login = document.querySelector(".btn_login");
 
-// Función para mostrar la ventana de login
+function getEstadoClass(estado) {
+    switch (estado.toLowerCase()) {
+        case 'pendiente':
+            return 'estado-pendiente';
+        case 'en progreso':
+            return 'estado-en-progreso';
+        case 'completado':
+            return 'estado-completado';
+        default:
+            return 'estado-desconocido';
+    }
+}
+
+function mostrarTareasFiltradas(filtro = '') {
+    let divTareas = document.querySelector(".div_tareas");
+    if (!divTareas) return;
+
+    let tareas = JSON.parse(localStorage.getItem("tareas_guardadas")) || [];
+    let tareasFiltradas = tareas.filter(tarea => tarea.NombreTarea.toLowerCase().includes(filtro.toLowerCase()));
+
+    divTareas.innerHTML = `
+        <h3>Tareas${filtro ? ` filtradas por "${filtro}"` : ''}</h3>
+        ${tareasFiltradas.map(tarea => {
+        let imagenesPerfil = tarea.usuario_id_asignados.map(userId => {
+            let usuario = usuarios.find(u => u.id === userId);
+            return usuario ? `<img src="${usuario.imgPerfil}" alt="Perfil" class="img_perfil" />` : '';
+        }).join('');
+
+        return `
+                <div class="tarea">
+                    <div class="nm_tarea">${tarea.NombreTarea}</div>
+                    <div class="asignado">
+                        ${imagenesPerfil}
+                    </div>
+                    <div class="fecha">${tarea.fechaEntrega}</div>
+                    <div class="estado"><div class="est ${getEstadoClass(tarea.estado)}">${tarea.estado}</div></div>
+                </div>
+            `;
+    }).join('')}
+    `;
+}
+
 function ventana_login() {
-    // Verifica si la ventana de login ya está en el DOM
     if (document.querySelector(".vent_login")) return;
 
     let vent_login = document.createElement("div");
@@ -25,6 +65,7 @@ function ventana_login() {
             <span class="asignado_spn">Asignado</span>
             <span class="fecha_spn">Fecha de entrega</span>
             <span class="estado_spn">Estado</span>
+            <div class="volver_login">Volver al Login</div>
         </header>
         <div class="div_tareas"></div>
     `;
@@ -32,29 +73,33 @@ function ventana_login() {
 
     if (github) github.remove();
     if (vtn_login) vtn_login.remove();
+
+    let inputBuscar = document.querySelector(".buscar");
+    if (inputBuscar) {
+        inputBuscar.addEventListener("input", (e) => {
+            mostrarTareasFiltradas(e.target.value);
+        });
+    }
+
+    let divVolverLogin = document.querySelector(".volver_login");
+    if (divVolverLogin) {
+        divVolverLogin.addEventListener("click", volverAlLogin);
+    }
 }
 
-// Función para iniciar sesión
 function iniciarSesion(usuario) {
-    // Mostrar la ventana de login
     ventana_login();
 
-    // Mostrar la imagen de perfil del usuario logueado
     let imgUser = document.querySelector(".img_user");
     imgUser.innerHTML = `<img src="${usuario.imgPerfil}" alt="" class="img_u">`;
 
-    // Mostrar las tareas y configurar el botón de agregar tareas
     mostrarTareas();
     configurarBotonAddTarea();
-
-    // Configurar el botón de menú
     configurarBotonMenu();
 
-    // Guardar el estado de la sesión en el localStorage con la nueva clave
     localStorage.setItem("sesionActiva", JSON.stringify(usuario));
 }
 
-// Verificar si hay una sesión guardada
 window.addEventListener("load", () => {
     const usuarioGuardado = JSON.parse(localStorage.getItem("sesionActiva"));
     if (usuarioGuardado) {
@@ -62,7 +107,6 @@ window.addEventListener("load", () => {
     }
 });
 
-// Configurar el evento del botón de login
 btn_login.addEventListener("click", () => {
     let txt_user = document.querySelector(".user").value;
     let txt_contra = document.querySelector(".contra").value;
@@ -83,15 +127,27 @@ btn_login.addEventListener("click", () => {
     }
 });
 
-// Función para mostrar la ventana de crear cuenta
 function ventana_crear_Cuenta() {
     let vent_cr_cuenta = document.createElement("div");
     vent_cr_cuenta.classList.add("vent_cc");
     root.appendChild(vent_cr_cuenta);
 }
 
-// Configurar el evento del botón para crear cuenta
 let txt_cr = document.querySelector(".txt_cr");
 if (txt_cr) {
     txt_cr.addEventListener("click", ventana_crear_Cuenta);
+}
+
+function volverAlLogin() {
+    let ventLogin = document.querySelector(".vent_login");
+    if (ventLogin) {
+        ventLogin.remove();
+    }
+
+    let vtnLogin = document.querySelector(".vtn_login");
+    if (vtnLogin) {
+        vtnLogin.classList.remove('hidden');
+    }
+
+    localStorage.removeItem("sesionActiva");
 }
