@@ -45,11 +45,10 @@ function mostrarMenuModal() {
         item.addEventListener("click", (e) => {
             let categoriaSeleccionada = e.target.dataset.categoria;
 
-            // Verificar si se seleccionó "Ver todas las tareas"
             if (categoriaSeleccionada === "todas") {
-                mostrarTodasLasTareas(); // Mostrar todas las tareas
+                mostrarTodasLasTareas(); 
             } else {
-                mostrarTareasPorCategoria(categoriaSeleccionada); // Mostrar tareas filtradas por categoría
+                mostrarTareasPorCategoria(categoriaSeleccionada);
             }
 
             modal.remove();
