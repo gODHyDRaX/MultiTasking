@@ -173,15 +173,13 @@ function guardarTareas() {
     localStorage.setItem("tareas_guardadas", JSON.stringify(tareas));
 }
 
-// Función para cargar las tareas desde el almacenamiento local
 export function cargarTareas() {
     const tareasGuardadas = localStorage.getItem("tareas_guardadas");
     if (tareasGuardadas) {
-        tareas.splice(0, tareas.length, ...JSON.parse(tareasGuardadas)); // Reemplaza el contenido del array tareas
+        tareas.splice(0, tareas.length, ...JSON.parse(tareasGuardadas)); 
     } else {
-        guardarTareas();  // Si no hay tareas en el localStorage, guarda las tareas actuales
+        guardarTareas();
     }
 }
 
-// Llama a cargarTareas al cargar el script para obtener las tareas almacenadas
 cargarTareas();

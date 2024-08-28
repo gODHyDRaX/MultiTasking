@@ -68,6 +68,11 @@ function ventana_login() {
             <button class="volver_login">Volver al Login</button>
         </header>
         <div class="div_tareas"></div>
+        <footer class="footer">
+            <img src="../img/logo.png" alt="">
+            <h1>Santa catalina Laboure</h1>
+            <h2>jemayen@scl.edu.gt</h2>
+        </footer>
     `;
     root.appendChild(vent_login);
 

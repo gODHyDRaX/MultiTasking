@@ -171,7 +171,7 @@ box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2p
    grid-row-end: 26;
    display: grid;
    grid-template-columns: repeat(25,1fr);
-   grid-template-rows: repeat(25,1fr);
+   grid-template-rows: 5rem 1fr 5rem;
     gap: 1rem;
     padding: 1rem;
 }
@@ -679,4 +679,17 @@ body.menu-open {
 .volver_login:hover{
     transition: 0.2s;
     color: red;
+}
+.footer{
+    grid-column-start: 1;
+    grid-column-end: 26;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+    height: 8rem;
+}
+.footer img{
+    width: 5rem;
+    height: 5rem;
 }

@@ -1,7 +1,6 @@
 import { tareas } from "./Data_tareas.js";
 import { usuarios } from "./Data_users.js";
 
-// Función para configurar el botón del menú
 export function configurarBotonMenu() {
     let btn_menu = document.querySelector(".menu");
     if (!btn_menu) {
@@ -14,7 +13,6 @@ export function configurarBotonMenu() {
     });
 }
 
-// Función para mostrar la ventana modal del menú
 function mostrarMenuModal() {
     if (document.querySelector(".modal-menu")) return;
 
@@ -25,6 +23,7 @@ function mostrarMenuModal() {
             <button class="close-modal">Cerrar</button>
             <h2>Categorías</h2>
             <ul class="categorias-list">
+                <li data-categoria="todas">Ver todas las tareas</li>
                 ${getCategorias().map(categoria => `<li data-categoria="${categoria}">${categoria}</li>`).join('')}
             </ul>
         </div>
@@ -32,38 +31,39 @@ function mostrarMenuModal() {
 
     document.querySelector(".root").appendChild(modal);
 
-    // Configurar evento para cerrar el modal
     document.querySelector(".close-modal").addEventListener("click", () => {
         modal.remove();
     });
 
-    // Evitar la selección de elementos fuera del modal
     modal.addEventListener("click", (e) => {
         if (e.target === modal) {
             modal.remove();
         }
     });
 
-    // Configurar eventos para las categorías
     document.querySelectorAll(".categorias-list li").forEach(item => {
         item.addEventListener("click", (e) => {
             let categoriaSeleccionada = e.target.dataset.categoria;
-            mostrarTareasPorCategoria(categoriaSeleccionada);
-            modal.remove(); // Opcional: Cerrar el modal después de seleccionar una categoría
+
+            // Verificar si se seleccionó "Ver todas las tareas"
+            if (categoriaSeleccionada === "todas") {
+                mostrarTodasLasTareas(); // Mostrar todas las tareas
+            } else {
+                mostrarTareasPorCategoria(categoriaSeleccionada); // Mostrar tareas filtradas por categoría
+            }
+
+            modal.remove();
         });
     });
 }
 
-// Función para obtener categorías únicas
 function getCategorias() {
     let tareas = JSON.parse(localStorage.getItem("tareas_guardadas")) || [];
     return [...new Set(tareas.map(tarea => tarea.categoria))]; // Obtener categorías únicas
 }
 
-// Función para mostrar tareas por categoría
-function mostrarTareasPorCategoria(categoria) {
+function mostrarTodasLasTareas() {
     let tareas = JSON.parse(localStorage.getItem("tareas_guardadas")) || [];
-    const tareasFiltradas = tareas.filter(tarea => tarea.categoria === categoria);
 
     let divTareas = document.querySelector(".div_tareas");
     if (!divTareas) {
@@ -71,11 +71,9 @@ function mostrarTareasPorCategoria(categoria) {
         return;
     }
 
-    // Limpiar el contenedor de tareas
     divTareas.innerHTML = `
-        <h3>Tareas de ${categoria}</h3>
-        ${tareasFiltradas.map(tarea => {
-        // Obtener las imágenes de perfil de los usuarios asignados
+        <h3>Todas las Tareas</h3>
+        ${tareas.map(tarea => {
         let imagenesPerfil = tarea.usuario_id_asignados.map(userId => {
             let usuario = usuarios.find(u => u.id === userId);
             return usuario ? `<img src="${usuario.imgPerfil}" alt="Perfil" class="img_perfil" />` : '';
@@ -95,7 +93,38 @@ function mostrarTareasPorCategoria(categoria) {
     `;
 }
 
-// Función para obtener la clase del estado
+function mostrarTareasPorCategoria(categoria) {
+    let tareas = JSON.parse(localStorage.getItem("tareas_guardadas")) || [];
+    const tareasFiltradas = tareas.filter(tarea => tarea.categoria === categoria);
+
+    let divTareas = document.querySelector(".div_tareas");
+    if (!divTareas) {
+        console.error('No se encontró el div con la clase "div_tareas".');
+        return;
+    }
+
+    divTareas.innerHTML = `
+        <h3>Tareas de ${categoria}</h3>
+        ${tareasFiltradas.map(tarea => {
+        let imagenesPerfil = tarea.usuario_id_asignados.map(userId => {
+            let usuario = usuarios.find(u => u.id === userId);
+            return usuario ? `<img src="${usuario.imgPerfil}" alt="Perfil" class="img_perfil" />` : '';
+        }).join('');
+
+        return `
+                <div class="tarea">
+                    <div class="nm_tarea">${tarea.NombreTarea}</div>
+                    <div class="asignado">
+                        ${imagenesPerfil}
+                    </div>
+                    <div class="fecha">${tarea.fechaEntrega}</div>
+                    <div class="estado"><div class="est ${getEstadoClass(tarea.estado)}">${tarea.estado}</div></div>
+                </div>
+            `;
+    }).join('')}
+    `;
+}
+
 function getEstadoClass(estado) {
     switch (estado) {
         case "Not started":

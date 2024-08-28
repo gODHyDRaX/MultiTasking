@@ -22,6 +22,11 @@ let login_vtn = `
         Crear cuenta
         </span>
     </div>
+    <footer class="footer">
+            <img src="../img/logo.png" alt="">
+            <h1>Santa catalina Laboure</h1>
+            <h2>jemayen@scl.edu.gt</h2>
+        </footer>
 `
 vtn_login.innerHTML = login_vtn
 
